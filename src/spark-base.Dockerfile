@@ -13,7 +13,7 @@ RUN apt-get update -y && \
     mv spark-${spark_version}-bin-hadoop${hadoop_version} /usr/bin/ && \
     mkdir /usr/bin/spark-${spark_version}-bin-hadoop${hadoop_version}/logs && \
     rm spark.tgz && \
-    cd /usr/bin/spark-${spark_version}-bin-hadoop${hadoop_version} && \
+    cd /usr/bin/spark-${spark_version}-bin-hadoop${hadoop_version}/jars && \
     wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.4.1/kafka-clients-2.4.1.jar && \
     wget https://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10_2.12/3.0.0/spark-streaming-kafka-0-10_2.12-3.0.0.jar && \
     wget https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.0.0/spark-sql-kafka-0-10_2.12-3.0.0.jar
