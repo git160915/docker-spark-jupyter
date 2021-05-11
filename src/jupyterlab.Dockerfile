@@ -2,7 +2,7 @@ FROM cluster-base
 
 # -- Layer: JupyterLab
 
-ARG spark_version=3.0.0
+ARG spark_version=3.0.2
 ARG jupyterlab_version=2.1.5
 
 RUN apt-get update -y && \

@@ -2,7 +2,7 @@ FROM cluster-base
 
 # -- Layer: Apache Spark
 
-ARG spark_version=3.0.0
+ARG spark_version=3.0.2
 ARG hadoop_version=2.7
 
 RUN apt-get update -y && \
@@ -15,8 +15,8 @@ RUN apt-get update -y && \
     rm spark.tgz && \
     cd /usr/bin/spark-${spark_version}-bin-hadoop${hadoop_version}/jars && \
     wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.4.1/kafka-clients-2.4.1.jar && \
-    wget https://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10_2.12/3.0.0/spark-streaming-kafka-0-10_2.12-3.0.0.jar && \
-    wget https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.0.0/spark-sql-kafka-0-10_2.12-3.0.0.jar
+    wget https://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10_2.12/3.0.2/spark-streaming-kafka-0-10_2.12-3.0.2.jar && \
+    wget https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.0.2/spark-sql-kafka-0-10_2.12-3.0.2.jar
 
 ENV SPARK_HOME /usr/bin/spark-${spark_version}-bin-hadoop${hadoop_version}
 ENV SPARK_MASTER_HOST spark-master
