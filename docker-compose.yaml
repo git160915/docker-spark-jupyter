@@ -4,7 +4,8 @@ volumes:
     name: "hadoop-distributed-file-system"
     driver: local
   data-volume:
-    external: true
+    name: "data-volume"
+    driver: local
 services:
   jupyterlab:
     image: jupyterlab
@@ -49,7 +50,23 @@ services:
       - data-volume:/datalake/source
     depends_on:
       - spark-master
-networks:
-  default:
-    external:
-      name: postgres_default 
+  db:
+    image: postgres
+    container_name: postgres-db-1
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - data-volume:/datalake/source
+  adminer:
+    image: adminer
+    container_name: adminer-1
+    restart: always
+    ports:
+      - 8090:8080
+    volumes:
+      - data-volume:/datalake/source
+#networks:
+  #default:
+    #external:
+      #name: postgres_default 

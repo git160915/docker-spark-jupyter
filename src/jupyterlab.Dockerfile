@@ -6,7 +6,6 @@ ARG spark_version=3.1.1
 ARG jupyterlab_version=3.0.15
 
 RUN apt update -y && \
-    apt install -y python3-pip && \
     pip3 install wget pyspark==${spark_version} jupyterlab==${jupyterlab_version}
 
 # -- Runtime
