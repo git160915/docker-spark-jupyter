@@ -6,8 +6,10 @@ FROM ubuntu:${debian_buster_image_tag}
 ARG shared_workspace=/opt/workspace
 
 RUN mkdir -p ${shared_workspace} && \
-    apt-get update -y && \
-    apt-get install -y python3 && \
+    apt update -y && \
+    apt upgrade -y && \
+    apt install -y python3 vim curl wget && \
+    apt install -y mlocate default-jdk iproute2 && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     rm -rf /var/lib/apt/lists/*
 
