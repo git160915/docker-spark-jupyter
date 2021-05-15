@@ -1,5 +1,5 @@
-ARG debian_buster_image_tag=latest
-FROM ubuntu:${debian_buster_image_tag}
+ARG ubuntu_image_tag=latest
+FROM ubuntu:${ubuntu_image_tag}
 
 # -- Layer: OS + Python 3.7
 
