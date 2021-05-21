@@ -57,6 +57,7 @@ services:
     environment:
       POSTGRES_PASSWORD: example
     volumes:
+      - shared-workspace:/opt/workspace
       - data-volume:/datalake/source
   adminer:
     image: adminer
@@ -65,6 +66,15 @@ services:
     ports:
       - 8090:8080
     volumes:
+      - shared-workspace:/opt/workspace
+      - data-volume:/datalake/source
+  dbt-worker:
+    image: dbt-base
+    container_name: dbt-worker-1
+    ports:
+      - 80:80
+    volumes:
+      - shared-workspace:/opt/workspace
       - data-volume:/datalake/source
 #networks:
   #default:
