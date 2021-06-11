@@ -170,14 +170,16 @@ services:
       - data-volume:/datalake/source
       - ./.data:/opt/workspace/data
       - ./.notebook:/opt/workspace/notebook
-  #dbt-worker:
-    #image: dbt-base
-    #container_name: dbt-worker
-    #ports:
-      #- 80:80
-    #volumes:
-      #- shared-workspace:/opt/workspace
-      #- data-volume:/datalake/source
+  dbt-worker:
+    image: dbt-base
+    container_name: dbt-worker
+    ports:
+      - 80:80
+    tty: true
+    stdin_open: true
+    volumes:
+      - shared-workspace:/opt/workspace
+      - data-volume:/datalake/source
   mysql-db:
     image: debezium/example-mysql:1.0
     container_name: mysql-db
